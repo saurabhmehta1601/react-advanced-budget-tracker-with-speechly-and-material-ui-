@@ -5,11 +5,11 @@ import {Delete , MoneyOff} from '@material-ui/icons'
 import useStyles from './styles'
 
 const List = () => {
-
-    const {deleteTransaction} =useContext(ExpenseTrackerContext)
+ 
+    const {deleteTransaction,transactions} =useContext(ExpenseTrackerContext)
 
     const classes = useStyles()
-    const transactions=[{id:1,type:"Income",category:"bussiness",amount:50,date:new Date().toLocaleString()},{id:2,type:"Expense",category:"pet",amount:50,date:new Date().toLocaleString()},{id:3,type:"Income",category:"salary",amount:50,date:new Date().toLocaleString()}]
+    
 
     return (
         <MUIList dense={false} className={classes.list}>
@@ -23,10 +23,10 @@ const List = () => {
                         </ListItemAvatar>
                         <ListItemText primary={transaction.category} secondary={`${transaction.amount} - ${transaction.date}`}/>
                         <ListItemSecondaryAction>
-                            <IconButton edge="end" aria-label="delete" onClick="">
+                            <IconButton edge="end" aria-label="delete" onClick={()=> deleteTransaction(transaction.id)}>
                                 <Delete />
                             </IconButton>
-                        </ListItemSecondaryAction>
+                        </ListItemSecondaryAction> 
                     </ListItem>
                 </Slide>
             ) )}
