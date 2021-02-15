@@ -4,13 +4,14 @@ import { TextField,Typography,Grid,Button,FormControl,InputLabel,Select,MenuItem
 import {incomeCategories,expenseCategories} from '../../../constants/categories'
 import useStyles from './styles'
 import {ExpenseTrackerContext} from '../../../context/context'
- 
+import formatDate from '../../../utils/formatDate' 
+
 const initialState={
     amount:'',
     type:'',
-    category:'Income',
-    date:new Date(),
-}
+    category:'Income', 
+    date:formatDate(new Date()),
+} 
 
 const Form = () => {
     const classes=useStyles()
@@ -58,7 +59,7 @@ const Form = () => {
                 <TextField type="number" label="Amount" fullWidth value={formData.amount} onChange={(e)=>setFormData({...formData,amount:e.target.value})}/>
             </Grid>
             <Grid item xs={6} >
-                <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(e)=>setFormData({...formData,date:e.target.value})}/>
+                <TextField type="date" label="Date" fullWidth value={formData.date} onChange={(e)=>setFormData({...formData,date:formatDate(e.target.value)})}/>
             </Grid>
             <Button className={classes.button} variant="outlined" color="primary" fullWidth onClick={createTransaction}> Create </Button>
         </Grid>
