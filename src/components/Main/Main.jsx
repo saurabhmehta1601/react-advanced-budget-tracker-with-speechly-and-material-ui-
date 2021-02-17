@@ -11,16 +11,18 @@ const Main = () => {
         <Card className={classes.root}>
             <CardHeader title="Expense Tracker" subheader="Powered by speechly" />
             <CardContent >  
-               <Typography align="center" variant="h5">
+               <Typography align="center" variant="h6">
                Total Balance $100
                </Typography>
                <Typography variant="subtitle1" style={{lineHeight:'1.5em',marginTop:'20px'}}>
                 {/* Info card */}
-              Try saying : Add income for  $100 in Category Salary for Monday ...
+              Try saying : Add income for  $100 in Category Salary for Monday 
                </Typography>
-               <Divider />
-              <Form />
-            </CardContent>
+               <Divider className={classes.divider} />
+             
+              <Form />     
+             
+                </CardContent>
             <CardContent className={classes.cardContent}>
                 <Grid container spacing={2}>
                     <Grid item xs={12}>

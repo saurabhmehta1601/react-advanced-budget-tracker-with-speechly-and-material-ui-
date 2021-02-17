@@ -7,7 +7,7 @@ const useTransactions = (title) => {
     resetCategories()
 
     const {transactions} =useContext(ExpenseTrackerContext)
-    console.log(transactions);
+ 
     const transactionsPerCategory = transactions.filter(t => t.type===title)
 
    
